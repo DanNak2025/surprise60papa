@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surprise 60 ans - Camp Sahara Mer Morte</title>
+    <!-- Tailwind CSS Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts for gorgeous typography (Inter for English/French, Assistant for Hebrew) -->
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        desert: {
+                            50: '#fdfbf7',
+                            100: '#fbf7ee',
+                            200: '#f4eade',
+                            300: '#e9d5c1',
+                            400: '#d7b69a',
+                            500: '#e07a5f', // Desert Orange
+                            600: '#c85e42',
+                            700: '#a3472f',
+                        },
+                        deepblue: {
+                            50: '#f0f4f8',
+                            100: '#dbe5f0',
+                            200: '#bccfe3',
+                            500: '#3d5a80', // Deep sea blue
+                            600: '#2e4769',
+                            700: '#21344f',
+                            800: '#1d2a3a',
+                        },
+                        seablue: {
+                            200: '#cee3f0',
+                            300: '#98c1d9', // Light sea blue
+                            400: '#6ea6cc',
+                        },
+                        emeraldaccent: {
+                            500: '#2a9d8f', // Accent sage/teal
+                            600: '#218276',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Assistant', 'sans-serif'],
+                        hebrew: ['Assistant', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            font-family: 'Inter', 'Assistant', sans-serif;
+            background-color: #fcf9f4;
+            background-image: radial-gradient(#e07a5f08 1px, transparent 0), radial-gradient(#3d5a8005 1px, transparent 0);
+            background-size: 24px 24px;
+            background-position: 0 0, 12px 12px;
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #3d5a80 0%, #e07a5f 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #3d5a80 0%, #2e4769 50%, #e07a5f 100%);
+        }
+
+        /* Customize scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+
+        /* Switch smooth animations */
+        .tab-transition {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Sparkling animation for the special card */
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 15px rgba(42, 157, 143, 0.4); }
+            50% { box-shadow: 0 0 30px rgba(42, 157, 143, 0.8); }
+        }
+        .surprise-glow {
+            animation: pulseGlow 3s infinite;
+        }
+    </style>
+</head>
+<body class="text-slate-800 min-h-screen pb-16 antialiased">
+
+    <!-- STICKY TOP ACTIONS -->
+    <div class="sticky top-0 z-50 glass-card px-4 py-3 shadow-md flex justify-between items-center transition-all duration-300">
+        <div class="flex items-center space-x-2">
+            <span class="text-xl">🏜️</span>
+            <span class="font-extrabold text-sm tracking-wider uppercase text-deepblue-700 hidden sm:inline-block">Camp Sahara Desert Adventure</span>
+        </div>
+        
+        <!-- Language Switcher -->
+        <div class="bg-slate-100 p-1 rounded-full flex gap-1 shadow-inner border border-slate-200">
+            <button id="lang-btn-fr" class="px-4 py-1.5 rounded-full text-xs font-bold uppercase transition-all duration-300 flex items-center gap-1.5 bg-white text-deepblue-600 shadow" onclick="switchLang('fr')">
+                <span>🇫🇷</span> <span>FR</span>
+            </button>
+            <button id="lang-btn-he" class="px-4 py-1.5 rounded-full text-xs font-bold uppercase transition-all duration-300 flex items-center gap-1.5 text-slate-500 hover:text-slate-800" onclick="switchLang('he')">
+                <span>🇮🇱</span> <span>HE</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- HERO SECTION -->
+    <header class="relative gradient-bg text-white overflow-hidden py-12 md:py-20 px-4 text-center">
+        <!-- Abstract desert wave graphics in background -->
+        <div class="absolute inset-0 opacity-10 pointer-events-none">
+            <svg class="absolute bottom-0 w-full" viewBox="0 0 1440 320" fill="currentColor">
+                <path d="M0,96L80,122.7C160,149,320,203,480,218.7C640,235,800,213,960,181.3C1120,149,1280,107,1360,85.3L1440,64L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path>
+            </svg>
+        </div>
+        
+        <!-- FLOATING BALLOON EMOJIS IN THE BACKGROUND -->
+        <div class="absolute top-10 left-10 text-3xl animate-bounce duration-1000 opacity-30">🎈</div>
+        <div class="absolute top-20 right-12 text-4xl animate-bounce duration-700 opacity-40">⛺</div>
+        <div class="absolute bottom-8 left-1/4 text-2xl opacity-25">🏖️</div>
+
+        <div class="max-w-4xl mx-auto relative z-10">
+            <!-- French Header Content -->
+            <div id="header-fr" class="lang-content space-y-3">
+                <span class="bg-desert-500 text-white text-xs font-extrabold px-3 py-1.5 rounded-full uppercase tracking-widest shadow-md">Évènement Exceptionnel</span>
+                <h1 class="text-3xl md:text-5xl font-black tracking-tight leading-tight">
+                    🎂 Surprise 60 ans de Papa !
+                </h1>
+                <p class="text-base md:text-xl text-seablue-200 font-medium max-w-xl mx-auto">
+                    👨‍👩‍👧‍👦 Glamping & Aventure Sauvage au Camp Sahara (Mer Morte)
+                </p>
+            </div>
+            
+            <!-- Hebrew Header Content -->
+            <div id="header-he" class="lang-content space-y-3 hidden" dir="rtl">
+                <span class="bg-desert-500 text-white text-xs font-extrabold px-3 py-1.5 rounded-full uppercase tracking-widest shadow-md">אירוע מיוחד</span>
+                <h1 class="text-3xl md:text-5xl font-black tracking-tight leading-tight">
+                    🎂 הפתעה לגיל 60 של אבא!
+                </h1>
+                <p class="text-base md:text-xl text-seablue-200 font-medium max-w-xl mx-auto font-hebrew">
+                    👨‍👩‍👧‍👦 יומיים של חגיגה משפחתית וגלמפינג בקמפ סהרה (ים המלח)
+                </p>
+            </div>
+
+            <!-- FAMILY PHOTO -->
+            <div class="mt-8 max-w-2xl mx-auto rounded-3xl overflow-hidden shadow-2xl border-4 border-white/20">
+                <img src="famille.jpg" alt="Photo de famille" class="w-full h-auto object-cover">
+            </div>
+
+            <!-- COUNTDOWN COMPONENT -->
+            <div class="mt-8 max-w-md mx-auto glass-card text-slate-800 rounded-3xl p-5 shadow-2xl relative">
+                <!-- Config button for target date -->
+                <button class="absolute top-3 right-3 text-xs text-slate-400 hover:text-deepblue-500 transition-colors" onclick="openDateModal()" title="Modifier la date / שנה תאריך">
+                    <i class="fa-solid fa-clock-rotate-left text-sm"></i>
+                </button>
+                
+                <p id="countdown-title-fr" class="lang-content text-xs font-bold uppercase tracking-wider text-slate-500 mb-3">Compte à rebours avant la surprise</p>
+                <p id="countdown-title-he" class="lang-content text-xs font-bold uppercase tracking-wider text-slate-500 mb-3 hidden">ספירה לאחור להפתעה הגדולה</p>
+                
+                <div class="grid grid-cols-4 gap-2 md:gap-4 font-bold text-slate-800">
+                    <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-100 shadow-sm">
+                        <span id="count-days" class="block text-xl md:text-2xl font-black text-deepblue-500">00</span>
+                        <span id="lbl-days-fr" class="lang-content text-[10px] text-slate-400 font-medium uppercase">Jours</span>
+                        <span id="lbl-days-he" class="lang-content text-[10px] text-slate-400 font-medium uppercase hidden">ימים</span>
+                    </div>
+                    <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-100 shadow-sm">
+                        <span id="count-hours" class="block text-xl md:text-2xl font-black text-deepblue-500">00</span>
+                        <span id="lbl-hours-fr" class="lang-content text-[10px] text-slate-400 font-medium uppercase">Heures</span>
+                        <span id="lbl-hours-he" class="lang-content text-[10px] text-slate-400 font-medium uppercase hidden">שעות</span>
+                    </div>
+                    <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-100 shadow-sm">
+                        <span id="count-mins" class="block text-xl md:text-2xl font-black text-deepblue-500">00</span>
+                        <span id="lbl-mins-fr" class="lang-content text-[10px] text-slate-400 font-medium uppercase">Min</span>
+                        <span id="lbl-mins-he" class="lang-content text-[10px] text-slate-400 font-medium uppercase hidden">דקות</span>
+                    </div>
+                    <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-100 shadow-sm">
+                        <span id="count-secs" class="block text-xl md:text-2xl font-black text-desert-500 animate-pulse">00</span>
+                        <span id="lbl-secs-fr" class="lang-content text-[10px] text-slate-400 font-medium uppercase">Sec</span>
+                        <span id="lbl-secs-he" class="lang-content text-[10px] text-slate-400 font-medium uppercase hidden">שניות</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- DATE CONFIGURATION MODAL (Saves to LocalStorage) -->
+    <div id="date-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white rounded-3xl p-6 w-full max-w-sm shadow-2xl space-y-4">
+            <div class="flex justify-between items-center border-b pb-3">
+                <h3 class="font-bold text-slate-800 text-lg">Changer la date de l'événement / שינוי תאריך</h3>
+                <button onclick="closeDateModal()" class="text-slate-400 hover:text-slate-600"><i class="fa-solid fa-xmark text-lg"></i></button>
+            </div>
+            <div class="space-y-3">
+                <label class="block text-sm text-slate-600 font-semibold">Entrez la date du jour J (15:00)</label>
+                <input type="datetime-local" id="input-target-date" class="w-full p-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-desert-400">
+            </div>
+            <div class="flex gap-2">
+                <button onclick="saveTargetDate()" class="flex-1 bg-desert-500 text-white font-bold py-2.5 rounded-xl hover:bg-desert-600 transition-colors">Valider / שמור</button>
+                <button onclick="resetTargetDate()" class="bg-slate-100 hover:bg-slate-200 text-slate-600 px-4 py-2.5 rounded-xl font-medium transition-colors">Reset</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN BODY CONTAINER -->
+    <div class="container max-w-4xl mx-auto px-4 mt-8">
+
+        <!-- FAMILY PHOTO INTEGRATION -->
+        <div class="max-w-xl mx-auto -mt-16 md:-mt-20 mb-10 px-4 relative z-20">
+            <div class="bg-white rounded-3xl p-3 shadow-2xl border border-slate-100 overflow-hidden transform hover:scale-[1.01] transition-all duration-300">
+                <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-gradient-to-br from-desert-100 to-deepblue-100">
+                    <img src="Photographer Images May 25 2026.jpg" 
+                         alt="La Dream Team / המשפחה" 
+                         class="w-full h-full object-cover"
+                         onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=800&q=80';">
+                    <!-- Gradient overlay on the image -->
+                    <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent p-4 pt-12 text-white text-center">
+                        <p id="photo-caption-fr" class="lang-content text-sm md:text-base font-bold tracking-wide">
+                            La Dream Team au complet, prête pour l'aventure ! 👨‍👩‍👧‍👦❤️
+                        </p>
+                        <p id="photo-caption-he" class="lang-content text-sm md:text-base font-bold tracking-wide hidden font-hebrew" dir="rtl">
+                            הצוות המשפחתי המדהים מוכן לחגיגה הגדולה! 👨‍👩‍👧‍👦❤️
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DAY SELECTOR TABS -->
+        <div class="grid grid-cols-2 gap-4 mb-8">
+            <button id="btn-j1" class="tab-btn active bg-desert-500 text-white font-black py-4 px-6 rounded-2xl shadow-lg transform hover:scale-[1.02] active:scale-95 transition-all flex flex-col items-center gap-1" onclick="switchTab('j1')">
+                <span class="text-xs uppercase tracking-widest opacity-80">Phase 1</span>
+                <span class="text-lg flex items-center gap-2">
+                    <i class="fa-solid fa-campground"></i> Jour 1 / יום 1
+                </span>
+            </button>
+            <button id="btn-j2" class="tab-btn bg-white hover:bg-slate-50 text-deepblue-500 font-black py-4 px-6 rounded-2xl shadow-md border border-slate-100 transform hover:scale-[1.02] active:scale-95 transition-all flex flex-col items-center gap-1" onclick="switchTab('j2')">
+                <span class="text-xs uppercase tracking-widest opacity-60">Phase 2</span>
+                <span class="text-lg flex items-center gap-2">
+                    <i class="fa-solid fa-water"></i> Jour 2 / יום 2
+                </span>
+            </button>
+        </div>
+
+        <!-- ================= TIMELINE SECTIONS ================= -->
+        
+        <!-- FRENCH MAIN CONTENT CONTAINER -->
+        <div id="content-fr" class="lang-content space-y-6">
+            
+            <!-- JOUR 1 FRENCH -->
+            <div id="j1-fr" class="timeline space-y-4">
+                
+                <!-- Card 1 -->
+                <div class="event-card bg-white rounded-3xl p-6 shadow-sm border-l-4 border-desert-500 hover:shadow-md transition-all duration-300 relative">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                        <span class="time-badge bg-deepblue-500 text-white text-xs font-extrabold px-3 py-1 rounded-full flex items-center gap-1.5 shadow-sm">
+                            <i class="fa-solid fa-clock"></i> 09:15
+                        </span>
+                        <span class="text-xs font-bold text-desert-500 flex items-center gap-1 uppercase tracking-wider">
+                            <i class="fa-solid fa-plane-departure"></i> Départ
+                        </span>
+                    </div>
+                    <h3 class="event-title text-xl font-black text-deepblue-700">🚗 Départ de Raanana</h3>
+                    <p class="event-desc text-slate-600 mt-2">On charge les voitures et on décolle en premier pour devancer Papa et tout préparer sur place au Camp Sahara !</p>
+                    <div class="tip-box bg-sky-50 rounded-2xl p-4 mt-4 border-r-4 border-seablue-300 flex items-start gap-3">
+                        <span class="text-xl">💡</span>
+                        <p class="text-xs md:text-sm text-slate-600"><strong>Conseil :</strong> Préparez un sac à part avec maillots, serviettes et crème solaire pour ne pas ouvrir les valises à l'arrivée.</p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="event-card bg-white rounded-3xl p-6 shadow-sm border-l-4 border-desert-500 hover:shadow-md transition-all duration-300">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                        <span class="time-badge bg-deepblue-500 text-white text-xs font-extrabold px-3 py-1 rounded-full flex items-center gap-1.5">
+                            <i class="fa-solid fa-clock"></i> 10:45 - 12:00
+                        </span>
+                        <span class="text-xs font-bold text-desert-500 flex items-center gap-1 uppercase tracking-wider">
+                            <i class="fa-solid fa-utensils"></i> Pause & Repas
+                        </span>
+                    </div>
+                    <h3 class="event-title text-xl font-black text-deepblue-700">🏃‍♂️ Parc de la Voie Ferrée & Déjeuner</h3>
+                    <p class="event-desc text-slate-600 mt-2">Arrêt à "The First Station" à Jérusalem. Le petit de 3 ans se défoule sur l'ancienne voie ferrée et les wagons en bois. Le bébé reste à l'ombre. On mange rapidement (pizzas/burgers) au frais.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="event-card bg-white rounded-3xl p-6 shadow-sm border-l-4 border-desert-500 hover:shadow-md transition-all duration-300">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                        <span class="time-badge bg-deepblue-500 text-white text-xs font-extrabold px-3 py-1 rounded-full flex items-center gap-1.5">
+                            <i class="fa-solid fa-clock"></i> 12:00 - 13:15
+                        </span>
+                        <span class="text-xs font-bold text-indigo-500 flex items-center gap-1 uppercase tracking-wider">
+                            <i class="fa-solid fa-bed"></i> Repos
+                        </span>
+                    </div>
+                    <h3 class="event-title text-xl font-black text-deepblue-700">😴 Sieste en voiture</h3>
+                    <p class="event-desc text-slate-600 mt-2">Pendant la descente vers la mer Morte, les enfants (repus et fatigués) s'endorment à coup sûr. Route tranquille pour les parents.</p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="event-card bg-white rounded-3xl p-6 shadow-sm border-l-4 border-desert-500 hover:shadow-md transition-all duration-300">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                        <span class="time-badge bg-deepblue-500 text-white text-xs font-extrabold px-3 py-1 rounded-full flex items-center gap-1.5">
+                            <i class="fa-solid fa-clock"></i> 13:15
+                        </span>
+                        <span class="text-xs font-bold text-desert-500 flex items-center gap-1 uppercase tracking-wider">
+                            <i class="fa-solid fa-hammer"></i> Installation
+                        </span>
+                    </div>
+                    <h3 class="event-title text-xl font-black text-deepblue-700">⛺ Arrivée au Camp Sahara & Préparation</h3>
+                    <p class="event-desc text-slate-600 mt-2">On arrive 1h30 avant Papa ! Check-in, installation des ballons, de la banderole "Joyeux 60 ans" et du verre de l'amitié prêt sur la table. Tout le monde se met déjà en maillot de bain.</p>
+                </div>
+
+                <!-- Card 5 (THE BIG SURPRISE!) -->
+                <div class="event-card bg-gradient-to-br from-emerald-50 to-emerald-100/50 rounded-3xl p-6 shadow-lg border-l-8 border-emeraldaccent-500 hover:shadow-xl transition-all duration-300 surprise-glow transform hover:-translate-y-1">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                        <span class="time-badge bg-emeraldaccent-500 text-white text-xs font-extrabold px-3 py-1 rounded-full flex items-center gap-1.5 shadow-md">
+                            <i class="fa-solid fa-star animate-spin"></i> 15:00
+                        </span>
+                        <span class="text-xs font-extrabold text-emeraldaccent-600 flex items-center gap-1 uppercase tracking-wider animate-pulse">
+                            <i class="fa-solid fa-gift"></i> Surprise !
+                        </span>
+                    </div>
+                    <h3 class="event-title text-2xl font-black text-emeraldaccent-600 flex items-center gap-2">👑 LE GRAND MOMENT : SURPRISE !</h3>
+                    <p class="event-desc text-slate-700 font-medium mt-2">Papa arrive au Camp Sahara (il pense être seul avec Maman)... et TOUT LE MONDE est là ! Émotion garantie, gros câlins, puis on saute TOUS ensemble dans la piscine pour fêter ça ! 🥳💦</p>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="event-card bg-white rounded-3xl p-6 shadow-sm border-l-4 border-desert-500 hover:shadow-md transition-all duration-300">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                        <span class="time-badge bg-deepblue-500 text-white text-xs font-extrabold px-3 py-1 rounded-full flex items-center gap-1.5">
+                            <i class="fa-solid fa-clock"></i> 17:30
+                        </span>
+                        <span class="text-xs font-bold text-amber-500 flex items-center gap-1 uppercase tracking-wider">
+                            <i class="fa-solid fa-mountain-sun"></i> Crépuscule
+                        </span>
+                    </div>
+                    <h3 class="event-title text-xl font-black text-deepblue-700">🌅 Coucher de soleil à la Mer Morte</h3>
+                    <p class="event-desc text-slate-600 mt-2">La chaleur tombe. Petite séance photo en famille face aux montagnes de Moav. Le petit joue dans la boue/sable (Pas de baignade Mer Morte pour les petits !).</p>
+                </div>
+
+                <!-- Card 7 -->
+                <div class="event-card bg-white rounded-3xl p-6 shadow-sm border-l-4 border-desert-500 hover:shadow-md transition-all duration-300">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                        <span class="time-badge bg-deepblue-500 text-white text-xs font-extrabold px-3 py-1 rounded-full flex items-center gap-1.5">
+                            <i class="fa-solid fa-clock"></i> 19:30+
+                        </span>
+                        <span class="text-xs font-bold text-desert-500 flex items-center gap-1 uppercase tracking-wider">
+                            <i class="fa-solid fa-fire"></i> Soirée
+                        </span>
+                    </div>
+                    <h3 class="event-title text-xl font-black text-deepblue-700">🔥 Barbecue & Feu de camp</h3>
+                    <p class="event-desc text-slate-600 mt-2">Dîner de fête au glamping, guimauves grillées avec le grand de 3 ans et soirée sous les étoiles. Les petits vont s'effondrer de fatigue.</p>
+                </div>
+            </div>
+
+            <!-- JOUR 2 FRENCH -->
+            <div id="j2-fr" class="timeline space-y-4 hidden">
+                
+                <!-- Card 1 -->
+                <div class="event-card bg-white rounded-3xl p-6 shadow-sm border-l-4 border-seablue-300 hover:shadow-md transition-all duration-300">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                        <span class="time-badge bg-deepblue-500 text-white text-xs font-extrabold px-3 py-1 rounded-full flex items-center gap-1.5">
+                            <i class="fa-solid fa-clock"></i> 08:00
+                        </span>
+                        <span class="text-xs font-bold text-amber-500 flex items-center gap-1 uppercase tracking-wider">
+                            <i class="fa-solid fa-coffee"></i> Réveil
+                        </span>
+                    </div>
+                    <h3 class="event-title text-xl font-black text-deepblue-700">☕ Matin doux au désert</h3>
+                    <p class="event-desc text-slate-600 mt-2">Petit-déjeuner tranquille sur le campement et café des parents face à l'immensité du désert.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="event-card bg-white rounded-3xl p-6 shadow-sm border-l-4 border-seablue-300 hover:shadow-md transition-all duration-300">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                        <span class="time-badge bg-deepblue-500 text-white text-xs font-extrabold px-3 py-1 rounded-full flex items-center gap-1.5">
+                            <i class="fa-solid fa-clock"></i> 09:15 - 11:30
+                        </span>
+                        <span class="text-xs font-bold text-emeraldaccent-500 flex items-center gap-1 uppercase tracking-wider">
+                            <i class="fa-solid fa-person-walking-hiking"></i> Randonnée
+                        </span>
+                    </div>
+                    <h3 class="event-title text-xl font-black text-deepblue-700">💦 Randonnée aquatique à Ein Gedi</h3>
+                    <p class="event-desc text-slate-600 mt-2">Balade ombragée et très facile à Nahal David jusqu'à la première cascade. Le grand de 3 ans marche et patauge. On croise des bouquetins et des damans des rochers.</p>
+                    <div class="tip-box bg-amber-50 rounded-2xl p-4 mt-4 border-r-4 border-desert-300 flex items-start gap-3">
+                        <span class="text-xl">👶</span>
+                        <p class="text-xs md:text-sm text-slate-600"><strong>Logistique :</strong> Porte-bébé OBLIGATOIRE pour le bébé (non accessible en poussette dans le canyon).</p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="event-card bg-white rounded-3xl p-6 shadow-sm border-l-4 border-seablue-300 hover:shadow-md transition-all duration-300">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                        <span class="time-badge bg-deepblue-500 text-white text-xs font-extrabold px-3 py-1 rounded-full flex items-center gap-1.5">
+                            <i class="fa-solid fa-clock"></i> 11:30
+                        </span>
+                        <span class="text-xs font-bold text-seablue-400 flex items-center gap-1 uppercase tracking-wider">
+                            <i class="fa-solid fa-person-swimming"></i> Aquatique
+                        </span>
+                    </div>
+                    <h3 class="event-title text-xl font-black text-deepblue-700">🏊‍♂️ Round 2 : Piscine du Camp Sahara</h3>
+                    <p class="event-desc text-slate-600 mt-2">De retour de rando, on plonge directement dans l'eau fraîche. Super moment de complicité entre Papy et ses petits-enfants dans l'eau.</p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="event-card bg-white rounded-3xl p-6 shadow-sm border-l-4 border-seablue-300 hover:shadow-md transition-all duration-300">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                        <span class="time-badge bg-deepblue-500 text-white text-xs font-extrabold px-3 py-1 rounded-full flex items-center gap-1.5">
+                            <i class="fa-solid fa-clock"></i> 13:00 - 15:30
+                        </span>
+                        <span class="text-xs font-bold text-indigo-500 flex items-center gap-1 uppercase tracking-wider">
+                            <i class="fa-solid fa-bed"></i> Repos
+                        </span>
+                    </div>
+                    <h3 class="event-title text-xl font-black text-deepblue-700">🍔 Déjeuner & Sieste au frais</h3>
+                    <p class="event-desc text-slate-600 mt-2">Repas léger sur le camp puis sieste bien méritée pour tout le monde dans les tentes climatisées pour recharger les batteries.</p>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="event-card bg-white rounded-3xl p-6 shadow-sm border-l-4 border-seablue-300 hover:shadow-md transition-all duration-300">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                        <span class="time-badge bg-deepblue-500 text-white text-xs font-extrabold px-3 py-1 rounded-full flex items-center gap-1.5">
+                            <i class="fa-solid fa-clock"></i> 15:30
+                        </span>
+                        <span class="text-xs font-bold text-desert-500 flex items-center gap-1 uppercase tracking-wider">
+                            <i class="fa-solid fa-ice-cream"></i> Fun
+                        </span>
+                    </div>
+                    <h3 class="event-title text-xl font-black text-deepblue-700">⛲ Jets d'eau à Ein Bokek & Check-out</h3>
+                    <p class="event-desc text-slate-600 mt-2">On quitte le glamping direction la promenade d'Ein Bokek (100% poussette). Le grand s'amuse comme un fou dans les jets d'eau gratuits qui sortent du sol. Glace de fin de séjour avec Papy !</p>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="event-card bg-white rounded-3xl p-6 shadow-sm border-l-4 border-seablue-300 hover:shadow-md transition-all duration-300">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                        <span class="time-badge bg-deepblue-500 text-white text-xs font-extrabold px-3 py-1 rounded-full flex items-center gap-1.5">
+                            <i class="fa-solid fa-clock"></i> 17:30
+                        </span>
+                        <span class="text-xs font-bold text-slate-500 flex items-center gap-1 uppercase tracking-wider">
+                            <i class="fa-solid fa-soap"></i> Toilette
+                        </span>
+                    </div>
+                    <h3 class="event-title text-xl font-black text-deepblue-700">🚿 Douche et habillage</h3>
+                    <p class="event-desc text-slate-600 mt-2">On rince les enfants aux douches de la plage, habillage en vêtements confortables/pyjamas pour la route, et changement des couches.</p>
+                </div>
+
+                <!-- Card 7 -->
+                <div class="event-card bg-gradient-to-br from-deepblue-50 to-white rounded-3xl p-6 shadow-sm border-l-8 border-deepblue-500 hover:shadow-md transition-all duration-300">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                        <span class="time-badge bg-deepblue-500 text-white text-xs font-extrabold px-3 py-1 rounded-full flex items-center gap-1.5 shadow-sm">
+                            <i class="fa-solid fa-clock"></i> 18:00+
+                        </span>
+                        <span class="text-xs font-bold text-deepblue-500 flex items-center gap-1 uppercase tracking-wider animate-pulse">
+                            <i class="fa-solid fa-house-chimney-user"></i> Fin du périple
+                        </span>
+                    </div>
+                    <h3 class="event-title text-xl font-black text-deepblue-700">😴 Retour paisible vers Raanana</h3>
+                    <p class="event-desc text-slate-600 mt-2 font-medium">On démarre la voiture, 5 minutes après les deux petits dorment profondément jusqu'à la maison. Trajet calme avec des souvenirs magiques en tête ! ⛰️🌌</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- HEBREW MAIN CONTENT CONTAINER -->
+        <div id="content-he" class="lang-content hidden space-y-6" dir="rtl">
+            
+            <!-- JOUR 1 HEBREW -->
+            <div id="j1-he" class="timeline space-y-4">
+                
+                <!-- Card 1 -->
+                <div class="event-card bg-white rounded-3xl p-6 shadow-sm border-r-4 border-desert-500 hover:shadow-md transition-all duration-300">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                        <span class="time-badge bg-deepblue-500 text-white text-xs font-extrabold px-3 py-1 rounded-full flex items-center gap-1.5 shadow-sm">
+                            <i class="fa-solid fa-clock ml-1.5"></i> 09:15
+                        </span>
+                        <span class="text-xs font-bold text-desert-500 flex items-center gap-1 uppercase tracking-wider font-hebrew">
+                            <i class="fa-solid fa-plane-departure ml-1"></i> יציאה
+                        </span>
+                    </div>
+                    <h3 class="event-title text-xl font-black text-deepblue-700 font-hebrew">🚗 יוצאים מרעננה</h3>
+                    <p class="event-desc text-slate-600 mt-2 font-hebrew font-sans">אורזים את הרכבים ויוצאים ראשונים כדי להקדים את אבא ולהספיק להתארגן בקמפ סהרה לפני שהוא מגיע!</p>
+                    <div class="tip-box bg-sky-50 rounded-2xl p-4 mt-4 border-l-4 border-seablue-300 flex items-start gap-3">
+                        <span class="text-xl">💡</span>
+                        <p class="text-xs md:text-sm text-slate-600 font-hebrew"><strong>טיפ:</strong> הכינו בתיק נפרד את בגדי הים, המגבות וקרם ההגנה כדי שלא תצטרכו להפוך מזוודות בהגעה לקמפ סהרה.</p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="event-card bg-white rounded-3xl p-6 shadow-sm border-r-4 border-desert-500 hover:shadow-md transition-all duration-300">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                        <span class="time-badge bg-deepblue-500 text-white text-xs font-extrabold px-3 py-1 rounded-full flex items-center gap-1.5">
+                            <i class="fa-solid fa-clock ml-1.5"></i> 10:45 - 12:00
+                        </span>
+                        <span class="text-xs font-bold text-desert-500 flex items-center gap-1 uppercase tracking-wider font-hebrew">
+                            <i class="fa-solid fa-utensils ml-1"></i> עצירה ואוכל
+                        </span>
+                    </div>
+                    <h3 class="event-title text-xl font-black text-deepblue-700 font-hebrew">🏃‍♂️ פארק המסילה וארוחת צהריים</h3>
+                    <p class="event-desc text-slate-600 mt-2 font-hebrew">עוצרים במתחם התחנה הראשונה בירושלים. בן ה-3 רץ ומשתולל על המסילה הישנה וקרונות הרכבת. התינוק בצל. אוכלים משהו זריז (פיצה/המבורגר) במזגן.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="event-card bg-white rounded-3xl p-6 shadow-sm border-r-4 border-desert-500 hover:shadow-md transition-all duration-300">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                        <span class="time-badge bg-deepblue-500 text-white text-xs font-extrabold px-3 py-1 rounded-full flex items-center gap-1.5">
+                            <i class="fa-solid fa-clock ml-1.5"></i> 12:00 - 13:15
+                        </span>
+                        <span class="text-xs font-bold text-indigo-500 flex items-center gap-1 uppercase tracking-wider font-hebrew">
+                            <i class="fa-solid fa-bed ml-1"></i> מנוחה
+                        </span>
+                    </div>
+                    <h3 class="event-title text-xl font-black text-deepblue-700 font-hebrew">😴 שנת צהריים באוטו</h3>
+                    <p class="event-desc text-slate-600 mt-2 font-hebrew">בזמן הנסיעה והירידות לכיוון ים המלח, הילדים (שבעים ועייפים) נרדמים בשניות. נסיעה שקטה להורים.</p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="event-card bg-white rounded-3xl p-6 shadow-sm border-r-4 border-desert-500 hover:shadow-md transition-all duration-300">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                        <span class="time-badge bg-deepblue-500 text-white text-xs font-extrabold px-3 py-1 rounded-full flex items-center gap-1.5">
+                            <i class="fa-solid fa-clock ml-1.5"></i> 13:15
+                        </span>
+                        <span class="text-xs font-bold text-desert-500 flex items-center gap-1 uppercase tracking-wider font-hebrew">
+                            <i class="fa-solid fa-hammer ml-1"></i> התארגנות
+                        </span>
+                    </div>
+                    <h3 class="event-title text-xl font-black text-deepblue-700 font-hebrew">⛺ הגעה מוקדמת לקמפ סהרה והכנות</h3>
+                    <p class="event-desc text-slate-600 mt-2 font-hebrew">מגששים שעה וחצי לפני אבא! עושים צ'ק-אין, תולים שלט "מזל טוב בן 60", בלונים, ופותחים בקבוק יין/בירה על השולחן. כולם כבר מחליפים לבגדי ים.</p>
+                </div>
+
+                <!-- Card 5 (THE BIG SURPRISE!) -->
+                <div class="event-card bg-gradient-to-br from-emerald-50 to-emerald-100/50 rounded-3xl p-6 shadow-lg border-r-8 border-emeraldaccent-500 hover:shadow-xl transition-all duration-300 surprise-glow transform hover:-translate-y-1">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                        <span class="time-badge bg-emeraldaccent-500 text-white text-xs font-extrabold px-3 py-1 rounded-full flex items-center gap-1.5 shadow-md">
+                            <i class="fa-solid fa-star animate-spin ml-1.5"></i> 15:00
+                        </span>
+                        <span class="text-xs font-extrabold text-emeraldaccent-600 flex items-center gap-1 uppercase tracking-wider font-hebrew animate-pulse">
+                            <i class="fa-solid fa-gift ml-1"></i> הפתעה!
+                        </span>
+                    </div>
+                    <h3 class="event-title text-2xl font-black text-emeraldaccent-600 flex items-center gap-2 font-hebrew">👑 הרגע הגדול: הפתעה!</h3>
+                    <p class="event-desc text-slate-700 font-medium mt-2 font-hebrew">אבא נכנס למתחם קמפ סהרה (בטוח שהוא מגיע רק לחופשה זוגית) ופתאום - הפתעה! כל השבט מחכה לו. חיבוקים, דמעות, וישר קופצים כולם יחד לבריכה לחגוג! 🥳💦</p>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="event-card bg-white rounded-3xl p-6 shadow-sm border-r-4 border-desert-500 hover:shadow-md transition-all duration-300">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                        <span class="time-badge bg-deepblue-500 text-white text-xs font-extrabold px-3 py-1 rounded-full flex items-center gap-1.5">
+                            <i class="fa-solid fa-clock ml-1.5"></i> 17:30
+                        </span>
+                        <span class="text-xs font-bold text-amber-500 flex items-center gap-1 uppercase tracking-wider font-hebrew">
+                            <i class="fa-solid fa-mountain-sun ml-1"></i> שקיעה
+                        </span>
+                    </div>
+                    <h3 class="event-title text-xl font-black text-deepblue-700 font-hebrew">🌅 סיבוב שקיעה בים המלח</h3>
+                    <p class="event-desc text-slate-600 mt-2 font-hebrew">החום נשבר. נוסעים כמה דקות לחוף הקרוב לתמונות משפחתיות מדהימות מול הרי מואב. בן ה-3 משחק בחול/בוץ (לא מכניסים קטנים למים המלוחים!).</p>
+                </div>
+
+                <!-- Card 7 -->
+                <div class="event-card bg-white rounded-3xl p-6 shadow-sm border-r-4 border-desert-500 hover:shadow-md transition-all duration-300">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                        <span class="time-badge bg-deepblue-500 text-white text-xs font-extrabold px-3 py-1 rounded-full flex items-center gap-1.5">
+                            <i class="fa-solid fa-clock ml-1.5"></i> 19:30+
+                        </span>
+                        <span class="text-xs font-bold text-desert-500 flex items-center gap-1 uppercase tracking-wider font-hebrew">
+                            <i class="fa-solid fa-fire ml-1"></i> ערב במדבר
+                        </span>
+                    </div>
+                    <h3 class="event-title text-xl font-black text-deepblue-700 font-hebrew">🔥 על האש ומדורה</h3>
+                    <p class="event-desc text-slate-600 mt-2 font-hebrew">ארוחת ערב חגיגית בגלמפינג, מרשמלו על האש עם בן ה-3 ויושבים עם אבא מתחת לכוכבים. הילדים יקרסו מעייפות די מהר.</p>
+                </div>
+            </div>
+
+            <!-- JOUR 2 HEBREW -->
+            <div id="j2-he" class="timeline space-y-4 hidden">
+                
+                <!-- Card 1 -->
+                <div class="event-card bg-white rounded-3xl p-6 shadow-sm border-r-4 border-seablue-300 hover:shadow-md transition-all duration-300">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                        <span class="time-badge bg-deepblue-500 text-white text-xs font-extrabold px-3 py-1 rounded-full flex items-center gap-1.5">
+                            <i class="fa-solid fa-clock ml-1.5"></i> 08:00
+                        </span>
+                        <span class="text-xs font-bold text-amber-500 flex items-center gap-1 uppercase tracking-wider font-hebrew">
+                            <i class="fa-solid fa-coffee ml-1"></i> בוקר
+                        </span>
+                    </div>
+                    <h3 class="event-title text-xl font-black text-deepblue-700 font-hebrew font-sans">☕ בוקר רגוע במדבר</h3>
+                    <p class="event-desc text-slate-600 mt-2 font-hebrew font-sans">מתעוררים בנחת בקמפ סהרה, ארוחת בוקר קלילה במתחם וקפה מעולה להורים מול הנוף הפתוח.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="event-card bg-white rounded-3xl p-6 shadow-sm border-r-4 border-seablue-300 hover:shadow-md transition-all duration-300">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                        <span class="time-badge bg-deepblue-500 text-white text-xs font-extrabold px-3 py-1 rounded-full flex items-center gap-1.5">
+                            <i class="fa-solid fa-clock ml-1.5"></i> 09:15 - 11:30
+                        </span>
+                        <span class="text-xs font-bold text-emeraldaccent-500 flex items-center gap-1 uppercase tracking-wider font-hebrew">
+                            <i class="fa-solid fa-person-walking-hiking ml-1"></i> מסלול
+                        </span>
+                    </div>
+                    <h3 class="event-title text-xl font-black text-deepblue-700 font-hebrew">💦 טיול מים בעין גדי</h3>
+                    <p class="event-desc text-slate-600 mt-2 font-hebrew">הליכה מוצלת וקלה בנחל דוד עד למפל הראשון. בן ה-3 צועד ומשתכשך במים הרדודים. בדרך פוגשים יעלים ושפני סלע.</p>
+                    <div class="tip-box bg-amber-50 rounded-2xl p-4 mt-4 border-l-4 border-desert-300 flex items-start gap-3">
+                        <span class="text-xl">👶</span>
+                        <p class="text-xs md:text-sm text-slate-600 font-hebrew"><strong>לוגיסטיקה:</strong> חובה להביא מנשא עבור התינוק (המסלול בתוך הנחל לא נגיש לעגלות).</p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="event-card bg-white rounded-3xl p-6 shadow-sm border-r-4 border-seablue-300 hover:shadow-md transition-all duration-300">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                        <span class="time-badge bg-deepblue-500 text-white text-xs font-extrabold px-3 py-1 rounded-full flex items-center gap-1.5">
+                            <i class="fa-solid fa-clock ml-1.5"></i> 11:30
+                        </span>
+                        <span class="text-xs font-bold text-seablue-400 flex items-center gap-1 uppercase tracking-wider font-hebrew">
+                            <i class="fa-solid fa-person-swimming ml-1"></i> בריכה
+                        </span>
+                    </div>
+                    <h3 class="event-title text-xl font-black text-deepblue-700 font-hebrew">🏊‍♂️ סבב בריכה שני בקמפ סהרה</h3>
+                    <p class="event-desc text-slate-600 mt-2 font-hebrew">חוזרים מהטיול מיוזעים וישר קופצים למים הקרירים של הבריכה. זמן איכות מדהים של סבא עם הנכדים במים במתחם.</p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="event-card bg-white rounded-3xl p-6 shadow-sm border-r-4 border-seablue-300 hover:shadow-md transition-all duration-300">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                        <span class="time-badge bg-deepblue-500 text-white text-xs font-extrabold px-3 py-1 rounded-full flex items-center gap-1.5">
+                            <i class="fa-solid fa-clock ml-1.5"></i> 13:00 - 15:30
+                        </span>
+                        <span class="text-xs font-bold text-indigo-500 flex items-center gap-1 uppercase tracking-wider font-hebrew">
+                            <i class="fa-solid fa-bed ml-1"></i> מנוחה
+                        </span>
+                    </div>
+                    <h3 class="event-title text-xl font-black text-deepblue-700 font-hebrew font-sans">🍔 ארוחת צהריים ושנ"צ ממוזג</h3>
+                    <p class="event-desc text-slate-600 mt-2 font-hebrew">אוכלים משהו קל במתחם ונכנסים לאוהלים הממוזגים למנוחת צהריים טובה לקטנים ולמבוגרים.</p>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="event-card bg-white rounded-3xl p-6 shadow-sm border-r-4 border-seablue-300 hover:shadow-md transition-all duration-300">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                        <span class="time-badge bg-deepblue-500 text-white text-xs font-extrabold px-3 py-1 rounded-full flex items-center gap-1.5">
+                            <i class="fa-solid fa-clock ml-1.5"></i> 15:30
+                        </span>
+                        <span class="text-xs font-bold text-desert-500 flex items-center gap-1 uppercase tracking-wider font-hebrew">
+                            <i class="fa-solid fa-ice-cream ml-1"></i> כיף
+                        </span>
+                    </div>
+                    <h3 class="event-title text-xl font-black text-deepblue-700 font-hebrew">⛲ מזרקות בעין בוקק וצ'ק אאוט</h3>
+                    <p class="event-desc text-slate-600 mt-2 font-hebrew">אורזים ונוסעים לטיילת עין בוקק (נגישה לחלוטין לעגלות). בן ה-3 ישתולל וירוץ בין מזרקות המים המתוקים שיוצאות מהרצפה. מקנחים בגלידה חגיגית עם סבא!</p>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="event-card bg-white rounded-3xl p-6 shadow-sm border-r-4 border-seablue-300 hover:shadow-md transition-all duration-300">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                        <span class="time-badge bg-deepblue-500 text-white text-xs font-extrabold px-3 py-1 rounded-full flex items-center gap-1.5">
+                            <i class="fa-solid fa-clock ml-1.5"></i> 17:30
+                        </span>
+                        <span class="text-xs font-bold text-slate-500 flex items-center gap-1 uppercase tracking-wider font-hebrew">
+                            <i class="fa-solid fa-soap ml-1"></i> התארגנות
+                        </span>
+                    </div>
+                    <h3 class="event-title text-xl font-black text-deepblue-700 font-hebrew font-sans">🚿 מקלחים ומלבישים</h3>
+                    <p class="event-desc text-slate-600 mt-2 font-hebrew">שוטפים את הילדים מהחול במקלחות החוף, מלבישים בבגדים נוחים (בגדי פיג'מה) לנסיעה ומחליפים טיטולים.</p>
+                </div>
+
+                <!-- Card 7 -->
+                <div class="event-card bg-gradient-to-br from-deepblue-50 to-white rounded-3xl p-6 shadow-sm border-r-8 border-deepblue-500 hover:shadow-md transition-all duration-300">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                        <span class="time-badge bg-deepblue-500 text-white text-xs font-extrabold px-3 py-1 rounded-full flex items-center gap-1.5 shadow-sm">
+                            <i class="fa-solid fa-clock ml-1.5"></i> 18:00+
+                        </span>
+                        <span class="text-xs font-bold text-deepblue-500 flex items-center gap-1 uppercase tracking-wider font-hebrew animate-pulse">
+                            <i class="fa-solid fa-house-chimney-user ml-1"></i> חוזרים
+                        </span>
+                    </div>
+                    <h3 class="event-title text-xl font-black text-deepblue-700 font-hebrew">😴 נסיעה חלקה חזרה לרעננה</h3>
+                    <p class="event-desc text-slate-600 mt-2 font-hebrew font-medium">מניעים את האוטו, תוך 5 דקות שניהם ישנים חזק בכיסאות כל הדרך הביתה. נסיעה שקטה עם זיכרונות מטורפים מההפתעה! ⛰️🌌</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- PACKING LIST SECTION (Saves to LocalStorage) -->
+        <section class="mt-12 bg-white rounded-3xl p-6 md:p-8 shadow-sm border border-slate-100">
+            <div class="flex items-center gap-3 mb-6">
+                <span class="text-3xl">🎒</span>
+                <div>
+                    <h2 id="pack-title-fr" class="lang-content text-2xl font-black text-deepblue-700">Checklist Interactive des Bagages</h2>
+                    <h2 id="pack-title-he" class="lang-content text-2xl font-black text-deepblue-700 hidden font-hebrew">רשימת ציוד אינטראקטיבית</h2>
+                    <p id="pack-subtitle-fr" class="lang-content text-xs text-slate-400 uppercase font-bold tracking-wider">Cochez les affaires au fur et à mesure</p>
+                    <p id="pack-subtitle-he" class="lang-content text-xs text-slate-400 uppercase font-bold tracking-wider hidden font-hebrew">מסמנים וי על הציוד שארוז</p>
+                </div>
+            </div>
+
+            <!-- Categories pills -->
+            <div id="checklist-cats-fr" class="lang-content flex flex-wrap gap-2 mb-6">
+                <button onclick="filterChecklist('all')" class="check-cat-btn active bg-deepblue-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-sm transition-all" data-cat="all">Tout</button>
+                <button onclick="filterChecklist('kids')" class="check-cat-btn bg-slate-100 hover:bg-slate-200 text-slate-600 text-xs font-bold px-3 py-1.5 rounded-full transition-all" data-cat="kids">Bébé & Enfants 👶</button>
+                <button onclick="filterChecklist('swim')" class="check-cat-btn bg-slate-100 hover:bg-slate-200 text-slate-600 text-xs font-bold px-3 py-1.5 rounded-full transition-all" data-cat="swim">Baignade & Soleil 🏖️</button>
+                <button onclick="filterChecklist('desert')" class="check-cat-btn bg-slate-100 hover:bg-slate-200 text-slate-600 text-xs font-bold px-3 py-1.5 rounded-full transition-all" data-cat="desert">Hike & Désert 🌵</button>
+                <button onclick="filterChecklist('surprise')" class="check-cat-btn bg-slate-100 hover:bg-slate-200 text-slate-600 text-xs font-bold px-3 py-1.5 rounded-full transition-all" data-cat="surprise">Logistique Surprise 🎉</button>
+            </div>
+
+            <div id="checklist-cats-he" class="lang-content hidden flex flex-wrap gap-2 mb-6" dir="rtl">
+                <button onclick="filterChecklist('all')" class="check-cat-btn active bg-deepblue-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-sm transition-all font-hebrew" data-cat="all">הכל</button>
+                <button onclick="filterChecklist('kids')" class="check-cat-btn bg-slate-100 hover:bg-slate-200 text-slate-600 text-xs font-bold px-3 py-1.5 rounded-full transition-all font-hebrew" data-cat="kids">תינוק וילדים 👶</button>
+                <button onclick="filterChecklist('swim')" class="check-cat-btn bg-slate-100 hover:bg-slate-200 text-slate-600 text-xs font-bold px-3 py-1.5 rounded-full transition-all font-hebrew" data-cat="swim">בריכה ושמש 🏖️</button>
+                <button onclick="filterChecklist('desert')" class="check-cat-btn bg-slate-100 hover:bg-slate-200 text-slate-600 text-xs font-bold px-3 py-1.5 rounded-full transition-all font-hebrew" data-cat="desert">מדבר ומסלולים 🌵</button>
+                <button onclick="filterChecklist('surprise')" class="check-cat-btn bg-slate-100 hover:bg-slate-200 text-slate-600 text-xs font-bold px-3 py-1.5 rounded-full transition-all font-hebrew" data-cat="surprise">לוגיסטיקה והפתעה 🎉</button>
+            </div>
+
+            <!-- CHECKLIST ITEMS CONTAINER -->
+            <div id="checklist-items" class="space-y-2.5 max-h-[350px] overflow-y-auto pr-2">
+                <!-- Will be dynamically populated to handle interactive storage -->
+            </div>
+            
+            <!-- Reset Button for Checklist -->
+            <div class="mt-5 pt-4 border-t border-slate-100 flex justify-end">
+                <button onclick="resetChecklist()" class="text-xs text-slate-400 hover:text-red-500 transition-colors flex items-center gap-1">
+                    <i class="fa-solid fa-trash-can"></i> 
+                    <span id="reset-checklist-lbl-fr" class="lang-content">Réinitialiser la liste</span>
+                    <span id="reset-checklist-lbl-he" class="lang-content hidden font-hebrew">איפוס הרשימה</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- WHO BRINGS WHAT SECTION -->
+        <section class="mt-8 bg-white rounded-3xl p-6 md:p-8 shadow-sm border border-slate-100">
+            <div class="flex items-center gap-3 mb-6">
+                <span class="text-3xl">🍢</span>
+                <div>
+                    <h2 id="coord-title-fr" class="lang-content text-2xl font-black text-deepblue-700">Qui apporte quoi ? (Barbecue & Fête)</h2>
+                    <h2 id="coord-title-he" class="lang-content text-2xl font-black text-deepblue-700 hidden font-hebrew">מי מביא מה? (על האש והאירוע)</h2>
+                    <p id="coord-subtitle-fr" class="lang-content text-xs text-slate-400 uppercase font-bold tracking-wider">Répartition des tâches et courses familiales</p>
+                    <p id="coord-subtitle-he" class="lang-content text-xs text-slate-400 uppercase font-bold tracking-wider hidden font-hebrew">חלוקת משימות וקניות משפחתיות</p>
+                </div>
+            </div>
+
+            <div id="coordination-list" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- Dynamically populated in JavaScript -->
+            </div>
+        </section>
+
+        <!-- ROAD TRIP QUICK LINKS (MAPS / WAZE) -->
+        <section class="mt-8 bg-white rounded-3xl p-6 md:p-8 shadow-sm border border-slate-100">
+            <div class="flex items-center gap-3 mb-6">
+                <span class="text-3xl">📍</span>
+                <div>
+                    <h2 id="map-title-fr" class="lang-content text-2xl font-black text-deepblue-700">Adresses & Navigation</h2>
+                    <h2 id="map-title-he" class="lang-content text-2xl font-black text-deepblue-700 hidden font-hebrew">כתובות וניווט מהיר</h2>
+                    <p id="map-subtitle-fr" class="lang-content text-xs text-slate-400 uppercase font-bold tracking-wider">Lancez l'itinéraire en un clic</p>
+                    <p id="map-subtitle-he" class="lang-content text-xs text-slate-400 uppercase font-bold tracking-wider hidden font-hebrew">לחיצה אחת ומתחילים לנסוע</p>
+                </div>
+            </div>
+
+            <div class="space-y-3">
+                <!-- Route Step 1 -->
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between p-4 bg-slate-50 hover:bg-slate-100/75 rounded-2xl border border-slate-100 transition-colors gap-3">
+                    <div class="flex items-start gap-3">
+                        <span class="text-xl bg-desert-100 text-desert-500 w-10 h-10 rounded-xl flex items-center justify-center font-bold">1</span>
+                        <div>
+                            <h4 class="font-bold text-slate-800 text-sm md:text-base">
+                                <span class="lang-content" id="nav-p1-fr">Pause Midi: The First Station (Jérusalem)</span>
+                                <span class="lang-content hidden font-hebrew" id="nav-p1-he">עצירת צהריים: התחנה הראשונה (ירושלים)</span>
+                            </h4>
+                            <p class="text-xs text-slate-400">David Remez St 4, Jerusalem</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-2 self-end sm:self-center">
+                        <a href="https://waze.com/ul?q=The+First+Station+Jerusalem" target="_blank" class="px-3.5 py-1.5 bg-[#33ccff] text-white text-xs font-extrabold rounded-xl hover:opacity-90 flex items-center gap-1 shadow-sm transition-opacity">
+                            <i class="fa-brands fa-waze"></i> Waze
+                        </a>
+                        <a href="https://maps.google.com/?q=The+First+Station+Jerusalem" target="_blank" class="px-3.5 py-1.5 bg-slate-200 text-slate-700 text-xs font-extrabold rounded-xl hover:bg-slate-300 flex items-center gap-1 transition-colors">
+                            <i class="fa-solid fa-map-location-dot"></i> Maps
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Route Step 2 -->
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between p-4 bg-slate-50 hover:bg-slate-100/75 rounded-2xl border border-slate-100 transition-colors gap-3">
+                    <div class="flex items-start gap-3">
+                        <span class="text-xl bg-desert-100 text-desert-500 w-10 h-10 rounded-xl flex items-center justify-center font-bold">2</span>
+                        <div>
+                            <h4 class="font-bold text-slate-800 text-sm md:text-base">
+                                <span class="lang-content" id="nav-p2-fr">Le Campement: Camp Sahara</span>
+                                <span class="lang-content hidden font-hebrew" id="nav-p2-he">מתחם האירוח: קמפ סהרה גלמפינג</span>
+                            </h4>
+                            <p id="glamp-addr-fr" class="lang-content text-xs text-slate-400">Camp Sahara, Côte nord de la Mer Morte</p>
+                            <p id="glamp-addr-he" class="lang-content text-xs text-slate-400 hidden font-hebrew">קמפ סהרה, צפון ים המלח (אזור קליה)</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-2 self-end sm:self-center">
+                        <a href="https://waze.com/ul?q=קמפ+סהרה+ים+המלח" target="_blank" class="px-3.5 py-1.5 bg-[#33ccff] text-white text-xs font-extrabold rounded-xl hover:opacity-90 flex items-center gap-1 shadow-sm transition-opacity">
+                            <i class="fa-brands fa-waze"></i> Waze
+                        </a>
+                        <a href="https://maps.google.com/?q=Camp+Sahara+Dead+Sea" target="_blank" class="px-3.5 py-1.5 bg-slate-200 text-slate-700 text-xs font-extrabold rounded-xl hover:bg-slate-300 flex items-center gap-1 transition-colors">
+                            <i class="fa-solid fa-map-location-dot"></i> Maps
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Route Step 3 -->
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between p-4 bg-slate-50 hover:bg-slate-100/75 rounded-2xl border border-slate-100 transition-colors gap-3">
+                    <div class="flex items-start gap-3">
+                        <span class="text-xl bg-desert-100 text-desert-500 w-10 h-10 rounded-xl flex items-center justify-center font-bold">3</span>
+                        <div>
+                            <h4 class="font-bold text-slate-800 text-sm md:text-base">
+                                <span class="lang-content" id="nav-p3-fr">Rando Jour 2: Ein Gedi (Nahal David)</span>
+                                <span class="lang-content hidden font-hebrew" id="nav-p3-he">טיול יום 2: שמורת עין גדי (נחל דוד)</span>
+                            </h4>
+                            <p id="eingedi-addr-fr" class="lang-content text-xs text-slate-400">Réserve naturelle d'Ein Gedi</p>
+                            <p id="eingedi-addr-he" class="lang-content text-xs text-slate-400 hidden font-hebrew">שמורת טבע עין גדי</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-2 self-end sm:self-center">
+                        <a href="https://waze.com/ul?q=Ein+Gedi+Nature+Reserve" target="_blank" class="px-3.5 py-1.5 bg-[#33ccff] text-white text-xs font-extrabold rounded-xl hover:opacity-90 flex items-center gap-1 shadow-sm transition-opacity">
+                            <i class="fa-brands fa-waze"></i> Waze
+                        </a>
+                        <a href="https://maps.google.com/?q=Ein+Gedi+Nature+Reserve" target="_blank" class="px-3.5 py-1.5 bg-slate-200 text-slate-700 text-xs font-extrabold rounded-xl hover:bg-slate-300 flex items-center gap-1 transition-colors">
+                            <i class="fa-solid fa-map-location-dot"></i> Maps
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Route Step 4 -->
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between p-4 bg-slate-50 hover:bg-slate-100/75 rounded-2xl border border-slate-100 transition-colors gap-3">
+                    <div class="flex items-start gap-3">
+                        <span class="text-xl bg-desert-100 text-desert-500 w-10 h-10 rounded-xl flex items-center justify-center font-bold">4</span>
+                        <div>
+                            <h4 class="font-bold text-slate-800 text-sm md:text-base">
+                                <span class="lang-content" id="nav-p4-fr">Jets d'eau & Glace: Plage Ein Bokek</span>
+                                <span class="lang-content hidden font-hebrew" id="nav-p4-he">מזרקות וגלידה: חוף עין בוקק</span>
+                            </h4>
+                            <p id="einbokek-addr-fr" class="lang-content text-xs text-slate-400">Promenade d'Ein Bokek</p>
+                            <p id="einbokek-addr-he" class="lang-content text-xs text-slate-400 hidden font-hebrew">טיילת עין בוקק</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-2 self-end sm:self-center">
+                        <a href="https://waze.com/ul?q=Ein+Bokek+Beach" target="_blank" class="px-3.5 py-1.5 bg-[#33ccff] text-white text-xs font-extrabold rounded-xl hover:opacity-90 flex items-center gap-1 shadow-sm transition-opacity">
+                            <i class="fa-brands fa-waze"></i> Waze
+                        </a>
+                        <a href="https://maps.google.com/?q=Ein+Bokek+Beach" target="_blank" class="px-3.5 py-1.5 bg-slate-200 text-slate-700 text-xs font-extrabold rounded-xl hover:bg-slate-300 flex items-center gap-1 transition-colors">
+                            <i class="fa-solid fa-map-location-dot"></i> Maps
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- JAVASCRIPT APP LOGIC -->
+    <script>
+        // Default Config State (Saves to LocalStorage)
+        let config = {
+            lang: 'fr',
+            activeTab: 'j1',
+            targetDate: null // Saved surprise target date
+        };
+
+        // Static Packing items (FR & HE data)
+        const packingData = [
+            { id: 'p1', cat: 'kids', fr: 'Couches pour le petit et le bébé 👶', he: 'חיתולים לקטן ולתינוק 👶' },
+            { id: 'p2', cat: 'kids', fr: 'Porte-bébé de rando (indispensable Ein Gedi)', he: 'מנשא טיולים לתינוק (חובה לעין גדי)' },
+            { id: 'p3', cat: 'kids', fr: 'Chapeaux de soleil & Casquettes pour enfants', he: 'כובעי שמש ומצחיות לילדים' },
+            { id: 'p4', cat: 'kids', fr: 'Petits snacks (pom\'potes, biscuits)', he: 'חטיפים קטנים לדרך (במבה, פירות, עוגיות)' },
+            { id: 'p5', cat: 'kids', fr: 'Lait en poudre & Biberons', he: 'תמ"ל ובקבוקים לתינוק' },
+            { id: 'p6', cat: 'swim', fr: 'Maillots de bain pour toute la famille', he: 'בגדי ים לכל המשפחה' },
+            { id: 'p7', cat: 'swim', fr: 'Matière gonflable / Bouées de piscine', he: 'גלגלי הצלה ומתנפחים לבריכה' },
+            { id: 'p8', cat: 'swim', fr: 'Serviettes de plage & Peignoirs pour petits', he: 'מגבות חוף וחלוקים לקטנטנים' },
+            { id: 'p9', cat: 'swim', fr: 'Crème solaire indice 50+ 🧴', he: 'קרם הגנה SPF 50+ 🧴' },
+            { id: 'p10', cat: 'desert', fr: 'Chaussures de marche ou baskets fermées', he: 'נעלי הליכה או סניקרס סגורות' },
+            { id: 'p11', cat: 'desert', fr: 'Sandales d\'eau (Nahal David & Jets d\'eau)', he: 'סנדלי מים/שורש (נחל דוד ומזרקות)' },
+            { id: 'p12', cat: 'desert', fr: 'Gourdes d\'eau isothermes', he: 'בקבוקי מים תרמיים' },
+            { id: 'p13', cat: 'surprise', fr: 'Banderole "Joyeux 60 ans !" 🎉', he: 'שלט "מזל טוב לגיל 60!" 🎉' },
+            { id: 'p14', cat: 'surprise', fr: 'Ballons festifs & Pompe à ballons', he: 'בלונים צבעוניים ומשאבה' },
+            { id: 'p15', cat: 'surprise', fr: 'Scotch ou Patafix (pour fixer la déco)', he: 'סלוטייפ או דבק תליה לקישוטים' },
+            { id: 'p16', cat: 'surprise', fr: 'Cadeau de Papa secret 🎁', he: 'המתנה הסודית של אבא 🎁' }
+        ];
+
+        // Static Coordination board data
+        const coordinationData = [
+            { 
+                id: 'c1', 
+                cat_fr: '🥩 Viande & Grillades', 
+                cat_he: '🥩 בשרים ועל האש',
+                placeholder_fr: 'Qui apporte ? (ex: Maman)', 
+                placeholder_he: 'מי מביא? (לדוגמה: אמא)',
+                defaultValue: ''
+            },
+            { 
+                id: 'c2', 
+                cat_fr: '🍻 Boissons & Apéro', 
+                cat_he: '🍻 שתייה קלה ובירות',
+                placeholder_fr: 'Qui apporte ? (ex: Seb)', 
+                placeholder_he: 'מי מביא? (לדוגמה: שגב)',
+                defaultValue: ''
+            },
+            { 
+                id: 'c3', 
+                cat_fr: '🎈 Décorations & Ambiance', 
+                cat_he: '🎈 קישוטים ובלונים',
+                placeholder_fr: 'Qui apporte ? (ex: Sarah & Kids)', 
+                placeholder_he: 'מי מביא? (לדוגמה: שרה והילדים)',
+                defaultValue: ''
+            },
+            { 
+                id: 'c4', 
+                cat_fr: '🍢 Guimauves & Feu de camp', 
+                cat_he: '🍢 מרשמלו ומדורה',
+                placeholder_fr: 'Qui apporte ? (ex: Laurent)', 
+                placeholder_he: 'מי מביא? (לדוגמה: לורן)',
+                defaultValue: ''
+            }
+        ];
+
+        // Packing check state stored as dictionary
+        let checkedItems = {};
+        // Coordination text inputs stored as dictionary
+        let coordAssignments = {};
+
+        // INITIAL ONLOAD TRIGGERS
+        window.onload = function() {
+            loadSavedData();
+            initCountdown();
+            renderChecklist();
+            renderCoordination();
+            applyLanguage();
+            applyTab();
+        };
+
+        // LOCAL STORAGE LOAD
+        function loadSavedData() {
+            // Language
+            const savedLang = localStorage.getItem('glamp_lang');
+            if (savedLang) config.lang = savedLang;
+
+            // Target Date
+            const savedDate = localStorage.getItem('glamp_target_date');
+            if (savedDate) {
+                config.targetDate = savedDate;
+            } else {
+                // Set default dynamically to this coming Sunday (dimanche) at 15:00
+                let defaultTarget = new Date();
+                const dayOfWeek = defaultTarget.getDay(); // 0 = Sunday, 1 = Monday, etc.
+                const daysUntilSunday = (7 - dayOfWeek) % 7;
+                
+                defaultTarget.setDate(defaultTarget.getDate() + daysUntilSunday);
+                defaultTarget.setHours(15, 0, 0, 0);
+                
+                // Format nicely as local datetime-local value (YYYY-MM-DDTHH:mm)
+                const year = defaultTarget.getFullYear();
+                const month = String(defaultTarget.getMonth() + 1).padStart(2, '0');
+                const day = String(defaultTarget.getDate()).padStart(2, '0');
+                const hours = String(defaultTarget.getHours()).padStart(2, '0');
+                const minutes = String(defaultTarget.getMinutes()).padStart(2, '0');
+                
+                config.targetDate = `${year}-${month}-${day}T${hours}:${minutes}`;
+            }
+
+            // Checklist Checked items
+            const savedChecklist = localStorage.getItem('glamp_checked_items');
+            if (savedChecklist) {
+                checkedItems = JSON.parse(savedChecklist);
+            } else {
+                checkedItems = {};
+            }
+
+            // Coordination Assignments
+            const savedCoord = localStorage.getItem('glamp_coord_assignments');
+            if (savedCoord) {
+                coordAssignments = JSON.parse(savedCoord);
+            } else {
+                coordAssignments = {};
+            }
+        }
+
+        // CHANGER LA LANGUE / SWAP LANGUAGES
+        function switchLang(lang) {
+            config.lang = lang;
+            localStorage.setItem('glamp_lang', lang);
+            applyLanguage();
+        }
+
+        function applyLanguage() {
+            // Update Lang Buttons Style
+            if (config.lang === 'fr') {
+                document.getElementById('lang-btn-fr').className = "px-4 py-1.5 rounded-full text-xs font-bold uppercase transition-all duration-300 flex items-center gap-1.5 bg-white text-deepblue-600 shadow border border-slate-200";
+                document.getElementById('lang-btn-he').className = "px-4 py-1.5 rounded-full text-xs font-bold uppercase transition-all duration-300 flex items-center gap-1.5 text-slate-500 hover:text-slate-800";
+                document.body.removeAttribute('dir');
+                document.body.classList.remove('font-hebrew');
+            } else {
+                document.getElementById('lang-btn-he').className = "px-4 py-1.5 rounded-full text-xs font-bold uppercase transition-all duration-300 flex items-center gap-1.5 bg-white text-deepblue-600 shadow border border-slate-200";
+                document.getElementById('lang-btn-fr').className = "px-4 py-1.5 rounded-full text-xs font-bold uppercase transition-all duration-300 flex items-center gap-1.5 text-slate-500 hover:text-slate-800";
+                document.body.setAttribute('dir', 'rtl');
+                document.body.classList.add('font-hebrew');
+            }
+
+            // Toggle element visibility with class "lang-content"
+            document.querySelectorAll('.lang-content').forEach(el => {
+                if (config.lang === 'fr') {
+                    if (el.id && el.id.endsWith('-he') || el.classList.contains('hidden-fr')) {
+                        el.classList.add('hidden');
+                    } else if (el.id && el.id.endsWith('-fr')) {
+                        el.classList.remove('hidden');
+                    } else if (!el.id) {
+                        // General switch
+                        if (el.getAttribute('dir') === 'rtl') el.classList.add('hidden');
+                        else el.classList.remove('hidden');
+                    }
+                } else {
+                    if (el.id && el.id.endsWith('-fr') || el.classList.contains('hidden-he')) {
+                        el.classList.add('hidden');
+                    } else if (el.id && el.id.endsWith('-he')) {
+                        el.classList.remove('hidden');
+                    } else if (!el.id) {
+                        // General switch
+                        if (el.getAttribute('dir') === 'rtl') el.classList.remove('hidden');
+                        else el.classList.add('hidden');
+                    }
+                }
+            });
+
+            // Re-render components with translated dynamic views
+            renderChecklist();
+            renderCoordination();
+            applyTab();
+        }
+
+        // TABS DAYS CONTROLLER
+        function switchTab(tab) {
+            config.activeTab = tab;
+            applyTab();
+        }
+
+        function applyTab() {
+            // Update active state style on buttons
+            const btnJ1 = document.getElementById('btn-j1');
+            const btnJ2 = document.getElementById('btn-j2');
+            
+            if (config.activeTab === 'j1') {
+                btnJ1.className = "tab-btn bg-desert-500 text-white font-black py-4 px-6 rounded-2xl shadow-lg transform hover:scale-[1.02] active:scale-95 transition-all flex flex-col items-center gap-1";
+                btnJ2.className = "tab-btn bg-white hover:bg-slate-50 text-deepblue-500 font-black py-4 px-6 rounded-2xl shadow-md border border-slate-100 transform hover:scale-[1.02] active:scale-95 transition-all flex flex-col items-center gap-1";
+            } else {
+                btnJ2.className = "tab-btn bg-desert-500 text-white font-black py-4 px-6 rounded-2xl shadow-lg transform hover:scale-[1.02] active:scale-95 transition-all flex flex-col items-center gap-1";
+                btnJ1.className = "tab-btn bg-white hover:bg-slate-50 text-deepblue-500 font-black py-4 px-6 rounded-2xl shadow-md border border-slate-100 transform hover:scale-[1.02] active:scale-95 transition-all flex flex-col items-center gap-1";
+            }
+
+            // Hide all timelines
+            document.querySelectorAll('.timeline').forEach(el => el.classList.add('hidden'));
+
+            // Show active timeline
+            const targetTimelineId = `${config.activeTab}-${config.lang}`;
+            const activeTimeline = document.getElementById(targetTimelineId);
+            if (activeTimeline) {
+                activeTimeline.classList.remove('hidden');
+            }
+        }
+
+        // COUNTDOWN TIMER CALCULATOR
+        let timerInterval;
+        function initCountdown() {
+            if (timerInterval) clearInterval(timerInterval);
+            
+            function updateTimer() {
+                const target = new Date(config.targetDate).getTime();
+                const now = new Date().getTime();
+                const difference = target - now;
+
+                if (difference <= 0) {
+                    document.getElementById('count-days').innerText = "00";
+                    document.getElementById('count-hours').innerText = "00";
+                    document.getElementById('count-mins').innerText = "00";
+                    document.getElementById('count-secs').innerText = "00";
+                    return;
+                }
+
+                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+                document.getElementById('count-days').innerText = days.toString().padStart(2, '0');
+                document.getElementById('count-hours').innerText = hours.toString().padStart(2, '0');
+                document.getElementById('count-mins').innerText = minutes.toString().padStart(2, '0');
+                document.getElementById('count-secs').innerText = seconds.toString().padStart(2, '0');
+            }
+
+            updateTimer();
+            timerInterval = setInterval(updateTimer, 1000);
+        }
+
+        // DATE CONFIGURATION DIALOG
+        function openDateModal() {
+            document.getElementById('input-target-date').value = config.targetDate;
+            document.getElementById('date-modal').classList.remove('hidden');
+        }
+
+        function closeDateModal() {
+            document.getElementById('date-modal').classList.add('hidden');
+        }
+
+        // PACKING ITEM HANDLER
+        function toggleChecklistItem(id) {
+            checkedItems[id] = !checkedItems[id];
+            localStorage.setItem('glamp_checked_items', JSON.stringify(checkedItems));
+            renderChecklist();
+        }
+
+        function resetChecklist() {
+            checkedItems = {};
+            localStorage.removeItem('glamp_checked_items');
+            renderChecklist();
+        }
+
+        // PACKING CHECKLIST RENDER & FILTER
+        let activeChecklistFilter = 'all';
+        function filterChecklist(cat) {
+            activeChecklistFilter = cat;
+            
+            // Highlight correct category buttons
+            const containers = ['checklist-cats-fr', 'checklist-cats-he'];
+            containers.forEach(containerId => {
+                document.querySelectorAll(`#${containerId} .check-cat-btn`).forEach(btn => {
+                    if (btn.getAttribute('data-cat') === cat) {
+                        btn.className = "check-cat-btn active bg-deepblue-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-sm transition-all";
+                    } else {
+                        btn.className = "check-cat-btn bg-slate-100 hover:bg-slate-200 text-slate-600 text-xs font-bold px-3 py-1.5 rounded-full transition-all";
+                    }
+                });
+            });
+
+            renderChecklist();
+        }
+
+        function renderChecklist() {
+            const container = document.getElementById('checklist-items');
+            container.innerHTML = '';
+
+            const filtered = packingData.filter(item => {
+                if (activeChecklistFilter === 'all') return true;
+                return item.cat === activeChecklistFilter;
+            });
+
+            filtered.forEach(item => {
+                const isChecked = checkedItems[item.id] || false;
+                const text = config.lang === 'fr' ? item.fr : item.he;
+
+                const wrapper = document.createElement('div');
+                wrapper.className = `flex items-center justify-between p-3.5 rounded-2xl border transition-all duration-200 ${
+                    isChecked 
+                    ? 'bg-emerald-50/50 border-emerald-100 opacity-70 line-through text-slate-400' 
+                    : 'bg-slate-50 border-slate-100 text-slate-700 hover:border-slate-200'
+                }`;
+
+                // Dynamic direction structure
+                const isRtl = config.lang === 'he';
+                wrapper.innerHTML = `
+                    <label class="flex items-center gap-3 w-full cursor-pointer select-none">
+                        <input type="checkbox" ${isChecked ? 'checked' : ''} onchange="toggleChecklistItem('${item.id}')" class="w-5 h-5 rounded-md border-slate-300 text-desert-500 focus:ring-desert-400 cursor-pointer">
+                        <span class="text-xs md:text-sm font-semibold">${text}</span>
+                    </label>
+                `;
+
+                container.appendChild(wrapper);
+            });
+        }
+
+        // COORDINATION "QUI APPORTE QUOI" SECTION RENDER
+        function renderCoordination() {
+            const container = document.getElementById('coordination-list');
+            container.innerHTML = '';
+
+            coordinationData.forEach(item => {
+                const label = config.lang === 'fr' ? item.cat_fr : item.cat_he;
+                const placeholder = config.lang === 'fr' ? item.placeholder_fr : item.placeholder_he;
+                const currentVal = coordAssignments[item.id] || '';
+
+                const card = document.createElement('div');
+                card.className = "p-4 bg-slate-50 rounded-2xl border border-slate-100 space-y-2 flex flex-col justify-between";
+                
+                card.innerHTML = `
+                    <h4 class="font-extrabold text-xs md:text-sm text-deepblue-600 uppercase tracking-wide flex items-center gap-2">
+                        <span>${label}</span>
+                    </h4>
+                    <div class="relative mt-1">
+                        <input type="text" 
+                               value="${currentVal}" 
+                               placeholder="${placeholder}" 
+                               oninput="saveCoordination('${item.id}', this.value)"
+                               class="w-full text-xs md:text-sm p-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-desert-400 focus:bg-white bg-white/70 shadow-inner">
+                    </div>
+                `;
+
+                container.appendChild(card);
+            });
+        }
+
+        function saveCoordination(id, val) {
+            coordAssignments[id] = val;
+            localStorage.setItem('glamp_coord_assignments', JSON.stringify(coordAssignments));
+        }
+
+        function saveTargetDate() {
+            const val = document.getElementById('input-target-date').value;
+            if (val) {
+                config.targetDate = val;
+                localStorage.setItem('glamp_target_date', val);
+                initCountdown();
+                closeDateModal();
+            }
+        }
+
+        function resetTargetDate() {
+            localStorage.removeItem('glamp_target_date');
+            loadSavedData();
+            initCountdown();
+            closeDateModal();
+        }
+    </script>
+</body>
+</html>
